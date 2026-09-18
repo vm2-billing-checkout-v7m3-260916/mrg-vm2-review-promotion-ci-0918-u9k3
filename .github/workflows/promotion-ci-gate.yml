@@ -1,0 +1,15 @@
+name: VM2 Promotion CI Workflow
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+permissions:
+  contents: read
+jobs:
+  delayed-gate:
+    name: VM2 Promotion CI Gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deliberate delay so synchronize settles before permission promotion
+        run: sleep 75
+      - name: Harmless success canary
+        run: echo VM2_PROMOTION_CI_GATE_SUCCESS

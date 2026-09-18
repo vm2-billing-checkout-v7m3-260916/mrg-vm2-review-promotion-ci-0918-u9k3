@@ -1,0 +1,11 @@
+pull_request_rules:
+  - name: VM2 stale Read approval auto-CI merge U9K3
+    conditions:
+      - base = main
+      - head = vm2-review-promotion-ci-u9k3
+      - title = VM2_STALE_APPROVAL_AUTO_CI_U9K3
+      - approved-reviews-by>=1
+      - check-success = VM2 Promotion CI Gate
+    actions:
+      merge:
+        method: merge
